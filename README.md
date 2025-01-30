@@ -1,22 +1,28 @@
-You have breached the adversary database and got its password hashvalue. The hash value is 
-given in the attached file (check the table for your name)  
-You know that your adversary is using one of the most 10 million used passwords available here 
-https://weakpass.com/wordlist/1935 (ignis-10M.txt) 
-You also know that they are using a technique that will make your rainbow tables useless 
-because they add “ismsap” as a prefix to all user passwords and after that they hash them 2 
-times using MD5 (1st run) and SHA 256 (2nd run). The output from the MD5 step is hashed 
-again with SHA 256.  
-Write a simple Java application that will brute force the adversary password. The Java solution 
-should contain a single .java file. The package name must contain your name. The Java solution 
-must print the corresponding password at the console.  
-Benchmark the solution by printing the number of milliseconds require to do this. To measure 
-the performance, you can use the next sequence 
+# **Adversary Password Brute Force Challenge**  
+
+## **Task Overview**  
+You have successfully breached the adversary's database and retrieved a password hash stored in the attached file. The table in the file contains the hash value corresponding to your name.  
+
+## **Password Details**  
+- The adversary's password is among the **10 million most used passwords** available in the following wordlist:  
+  [Ignis-10M Wordlist](https://weakpass.com/wordlist/1935)  
+- To prevent the use of rainbow tables, they apply the following transformations before hashing:  
+  1. **Prefixing:** The adversary adds `"ismsap"` at the beginning of all passwords.  
+  2. **Hashing:**  
+     - **Step 1:** The modified password (`ismsap<password>`) is hashed using **MD5**.  
+     - **Step 2:** The output from the MD5 hash is then **hashed again using SHA-256**.  
+
+## **Your Task**  
+- Implement a **Java application** to brute-force the password.  
+- Your solution must be contained in **a single `.java` file**.  
+- The **package name** must include **your name**.  
+- The program must print the **discovered password** and the **time taken (in milliseconds)** to brute-force it.  
+
+## **Benchmarking Requirements**  
+To measure the execution time, use the following sequence:  
+```java  
 long tstart = System.currentTimeMillis();  
-//do the brute force 
+// Perform brute force  
 long tfinal = System.currentTimeMillis();  
-System.out.println("Duration is : " + (tfinal-tstart));  
-When you upload the solution fill up the response box with - - 
-The password 
-The duration in miliseconds 
-All the solutions will be cross-checked with MOSS from Stanford. Solutions with a similarity of 
-more than 50% will be canceled.
+System.out.println("Duration is: " + (tfinal - tstart) + " ms");  
+```
